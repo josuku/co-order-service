@@ -12,7 +12,10 @@ export class OrderMsController {
     Logger.log('received create request', 'createOrder')
     if (!this.orderService.checkOrderIsValid(order)) {
       Logger.error('Bad Request', order);
-      throw new BadRequestException();
+      return {
+        id: 0,
+        errorMessage: 'Bad Request'
+      };
     }
     return this.orderService.createOrder(order);
   }
@@ -22,7 +25,10 @@ export class OrderMsController {
     Logger.log('received modify request', 'modifyOrder')
     if (!this.orderService.checkOrderIsValid(order)) {
       Logger.error('Bad Request', order);
-      throw new BadRequestException();
+      return {
+        success: false,
+        errorMessage: 'Bad Request'
+      };
     }
     return this.orderService.modifyOrder(order);
   }
