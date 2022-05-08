@@ -5,6 +5,7 @@ import { sqlDb, sqlHost, sqlPass, sqlPort, sqlUser } from './config';
 import { MicroServiceModule } from './microservice/microservice.module';
 import { OrderEntity } from './entities/order.entity';
 import { ProductEntity } from './entities/product.entity';
+import { LogisticEntity } from './entities/logistic.entity';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { ProductEntity } from './entities/product.entity';
         "username": sqlUser,
         "password": sqlPass,
         "database": sqlDb,
-        "entities": [ OrderEntity, ProductEntity ],
+        "entities": [ OrderEntity, ProductEntity, LogisticEntity ],
         "synchronize": true
       }
     )
